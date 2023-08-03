@@ -1,5 +1,5 @@
 # conjugator
-Verbos en español
+Web/app educativa con las conjugaciones de verbos en español.
 
 ## TODOs:
 ### Fase 1.5:
