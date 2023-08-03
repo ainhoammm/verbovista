@@ -1,0 +1,67 @@
+<app-header title="Aprender a conjugar verbos"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngIf="(lastLesson$ | async) as lastLesson">
+          <ion-card-header color="secondary"
+                           class="ion-justify-content-center ion-text-center">
+            {{ 'conjugate.continue-from' | translate }}
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <div class="continueText">
+              Lección {{lastLesson.lesson}}. {{lessons[lastLesson.lesson-1].title}}:
+              Ejercicio {{lastLesson.exercise}}
+            </div>
+            <ion-button color="secondary" [routerLink]="['/aprender-a-conjugar', lastLesson.lesson, lastLesson.exercise]">
+              {{ 'conjugate.continue' | translate }}
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+    <app-banner [banner]="banner"></app-banner>
+
+    <ion-row>
+      <ion-col size-xs="12" size-sm="6" *ngFor="let lesson of lessons; index as i">
+        <ion-card>
+          <ion-card-header class="ion-justify-content-between">
+            <ion-card-title >
+              {{i+1}}. {{lesson.title}}
+            </ion-card-title>
+
+            <ion-card-subtitle *ngIf="completedLessons$ | async as completed">
+              <ion-icon *ngIf="isCompletedLesson(completed, i)" color="primary" name="checkmark-outline"></ion-icon>
+            </ion-card-subtitle>
+
+          </ion-card-header>
+
+          <!-- isCompletedLesson(completedLessons$ | async, i) ? 'tertiary' : 'primary' -->
+          <ion-button color="primary"
+                      [routerLink]="['/aprender-a-conjugar', i+1]"
+                      size="large"
+                      expand="block">
+            {{ 'conjugate.learn' | translate }}
+          </ion-button>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button color="primary"
+                    [routerLink]="['/aprender-a-conjugar/crear']"
+                    size="large"
+                    expand="block">
+          Crear lecciones personalizadas
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

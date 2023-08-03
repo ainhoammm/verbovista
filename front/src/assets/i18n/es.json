@@ -1,0 +1,68 @@
+{
+  "menu": {
+    "home": "Inicio",
+    "learn": "Aprender a conjugar",
+    "exercises": "Ejercicios aleatorios"
+  },
+
+  "search": "Buscar verbo",
+  "print": "Imprimir",
+
+  "home-page": {
+    "slogan": "La mejor forma de aprender a conjugar verbos.",
+    "h1": "<b>Aprende gratis</b> a conjugar verbos en castellano de una forma divertida <b>y practica lo aprendido</b>",
+    "start-learning": "Comenzar a aprender",
+    "txt-method": "Aprende a tu ritmo con una metodología probada",
+    "txt-listen": "Escucha como suena cada conjugación o frase",
+    "txt-life": "Orientado para mantener conversaciones en la vida real",
+    "txt-responsive": "Aprende desde cualquier dispositivo: movil, tablet o PC",
+    "most-common-reg": "Verbos regulares más comunes",
+    "most-common-irreg": "Verbos irregulares más comunes",
+    "verb-of-the-day": "Verbo del día para estudiar"
+  },
+
+  "about-us": {
+    "title": "Acerca de verbovista",
+    "subtitle": "verbovista es una web/app totalmente gratuita desarrollada para aprender a conjugar verbos.",
+    "idea": "Ha sido ideada tanto para niños hispanohablantes nativos en edad de aprender a conjugar verbos, como para adultos que desean aprender a conjugar verbos en español.",
+    "characteristics": "verbovista ofrece las siguientes características:",
+    "ch1": "Buscador de verbos con más de 5000 verbos regulares e irregulares.",
+    "ch2": "Lecciones para aprender a conjugar y ejercicios relacionados.",
+    "ch3": "Ejercicios aleatorios para rellenar tablas de conjugación.",
+    "ch4": "Posibilidad de escuchar todas las formas verbales así como las frases de los ejercicios.",
+    "next": "¡Próximamente mucho más!",
+    "contact": "No dudes en <a href='https://verbovista.com/home/contactar'>contactar</a> con nosotros para ayudarnos a mejorar."
+  },
+
+  "contact": {
+    "contact": "Contactar",
+    "name": "Nombre",
+    "message": "Mensaje",
+    "send": "Enviar"
+  },
+
+  "conjugate": {
+    "continue-from": "Continúa donde lo dejaste",
+    "continue": "Continuar",
+    "check": "Corregir",
+    "learn": "Aprender"
+  },
+
+  "create": {
+    "title": "Crea nuevas lecciones de forma sencilla",
+    "lesson-title": "Título de lección",
+    "lesson-subtitle": "Subtitulo de lección",
+    "lesson-content": "Contenido de lección",
+    "exercises": "Ejercicios",
+    "exercise": "Ejercicio",
+    "exercise-type": "Tipo de ejercicio",
+    "exercise-answers": "Respuestas de ejercicio (separadas por coma)",
+    "exercise-options": "Opciones de ejercicio (separadas por coma)",
+    "choose": "Elección",
+    "input": "Escritura libre",
+    "add": "Añadir ejercicio",
+    "save": "Guardar",
+    "saved": "Lección guardada satisfactoriamente, proximamente será validada y publicada."
+  }
+
+}

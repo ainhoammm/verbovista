@@ -1,0 +1,67 @@
+{
+  "menu": {
+    "home": "Home",
+    "learn": "Learn to conjugate in Spanish",
+    "exercises": "Random exercises"
+  },
+
+  "search": "Search Spanish Verb",
+  "print": "Print",
+
+  "home-page": {
+    "slogan": "The best way to learn how to conjugate verbs.",
+    "h1": "<b>Learn for free to conjugate Spanish verbs</b> in a fun way <b>and practice</b> what you have learned",
+    "start-learning": "Start learning",
+    "txt-method": "Learn at your own pace with a proven methodology",
+    "txt-listen": "Hear how each conjugation or phrase sounds",
+    "txt-life": "Oriented for conversations in real life",
+    "txt-responsive": "Learn from any device: mobile, tablet or PC",
+    "most-common-reg": "Most common regular verbs",
+    "most-common-irreg": "Most common irregular verbs",
+    "verb-of-the-day": "Verb of the day to study"
+  },
+
+  "about-us": {
+    "title": "About verbovista",
+    "subtitle": "verbovista is a free web/app to learn to conjugate Spanish verbs.",
+    "idea": "It has been designed for both native Spanish-speaking children, as well as for adults who want to learn to conjugate verbs in Spanish.",
+    "characteristics": "verbovista offers the following features:",
+    "ch1": "Verb finder with more than 5000 regular and irregular verbs.",
+    "ch2": "Lessons for learn how to conjugate and related exercises.",
+    "ch3": "Random exercises to fill in conjugation table.",
+    "ch4": "Posibility to listen to all the verb forms as well as the phrases of the exercises.",
+    "next": "Much more coming soon!",
+    "contact": "Do not hesitate to <a href='https://verbovista.com/home/contactar'> contact </a> with us to help us improve."
+  },
+
+  "contact": {
+    "contact": "Contacta",
+    "name": "Name",
+    "message": "Message",
+    "send": "Send"
+  },
+
+  "conjugate": {
+    "continue-from": "Continue where you left off",
+    "continue": "Continue",
+    "check": "Check",
+    "learn": "Learn"
+  },
+
+  "create": {
+    "title": "Create custom lessons easily",
+    "lesson-title": "Lesson title",
+    "lesson-subtitle": "Lesson subtitle",
+    "lesson-content": "Lesson content",
+    "exercises": "Exercises",
+    "exercise": "Exercise",
+    "exercise-type": "Exercise type",
+    "exercise-answers": "Exercise answers (separated by comma)",
+    "exercise-options": "Exercise options (separated by comma)",
+    "choose": "Choose",
+    "input": "Input",
+    "add": "Add exercise",
+    "save": "Save",
+    "saved": "Lesson successfully saved, it will soon be validated and published."
+  }
+}

@@ -1,0 +1,96 @@
+<app-header title="Crear nuevas lecciones"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>{{'create.title' | translate}}</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <form [formGroup]="form">
+
+    <ion-item>
+      <ion-label position="floating">{{'create.lesson-title' | translate}}</ion-label>
+      <ion-input formControlName="title" placeholder="{{'create.lesson-title' | translate}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{'create.lesson-subtitle' | translate}}</ion-label>
+      <ion-input formControlName="subtitle" placeholder="{{'create.lesson-subtitle' | translate}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <angular-editor placeholder="{{'create.lesson-content' | translate}}" formControlName="content" [config]="editorConfig"></angular-editor>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col class="ion-text-center">
+          <ion-button (click)="addExercise()">{{'create.add' | translate}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <div formArrayName="exercises" *ngFor="let exercise of form.controls.exercises?.value; let i = index; trackBy:trackByFn">
+      <ng-container [formGroupName]="i">
+
+        <ion-card>
+          <ion-card-header color="secondary">
+            <ion-card-title>{{'create.exercise' | translate}} #{{i+1}}</ion-card-title>
+            <ion-icon *ngIf="i>=1" class="clickable-icon close-icon" (click)="removeExercise(i)" name="close-outline"></ion-icon>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>{{'create.exercise-type' | translate}}</ion-label>
+              <ion-select placeholder="Select One" formControlName="type">
+                <ion-select-option value="choose">{{'create.choose' | translate}}</ion-select-option>
+                <ion-select-option value="input">{{'create.input' | translate}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">{{'create.exercise' | translate}}</ion-label>
+              <ion-input placeholder="{{'create.exercise' | translate}}" formControlName="exercise"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="exercise.type === 'choose'">
+              <ion-label position="floating">{{'create.exercise-options' | translate}}</ion-label>
+              <ion-input placeholder="{{'create.exercise-options' | translate}}" formControlName="options"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">{{'create.exercise-answers' | translate}}</ion-label>
+              <ion-input placeholder="{{'create.exercise-answers' | translate}}" formControlName="answers"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+
+      </ng-container>
+    </div>
+
+  </form>
+
+<!--
+todo:
+  Preview:
+    <app-lesson *ngIf="form.controls.title.value && form.controls.content.value" [lesson]="getJSON()"></app-lesson>
+-->
+
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        <ion-button class="ion-align-self-center" (click)="saveJSON()">{{'create.save' | translate}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="success">
+    {{'create.saved' | translate}}
+  </div>
+
+</ion-content>
+

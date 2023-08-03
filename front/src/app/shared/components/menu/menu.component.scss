@@ -1,0 +1,31 @@
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+}
+
+a:hover{
+  color: var(--ion-color-secondary)
+}
+
+.active{
+  color: var(--ion-color-tertiary)
+}
+
+.brandLogo{
+  max-width: 175px;
+  max-height: 40px;
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+.desktop-menu-buttons-container{
+  display: flex;
+  justify-content: space-evenly;
+  height: 40px;
+  align-items: center;
+}
+
+.flag img{
+  margin-right: 8px;
+}

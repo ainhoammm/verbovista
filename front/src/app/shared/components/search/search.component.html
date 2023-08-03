@@ -1,0 +1,11 @@
+<ion-toolbar class="ion-padding">
+  <ion-searchbar animated (input)="onSearch($event.target.value)" [placeholder]="('search' | translate) +'...'"></ion-searchbar>
+</ion-toolbar>
+<ion-list *ngFor="let result of searchResults">
+  <ion-item [routerLink]="['/conjugacion/', result.verb]">
+    {{result.verb}}
+    <ion-badge [color]="result.irregular ? 'warning' : 'success'" slot="end">
+      {{ result.irregular ? 'Irregular' : 'Regular' }}
+    </ion-badge>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,130 @@
+<app-header title="Inicio"></app-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="ion-padding home">
+    <app-search></app-search>
+
+    <ion-grid class="ion-padding ion-align-items-center ">
+      <ion-row class="ion-hide-md-up">
+        <ion-col class="subtitle">
+          <ion-icon name='book-outline'></ion-icon> <span> {{'home-page.slogan' | translate}} </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="8">
+          <h2 [innerHTML]="'home-page.h1' | translate"></h2>
+          <div class="subtitle ion-hide-md-down">
+            <ion-icon name='book-outline'></ion-icon> <span> {{'home-page.slogan' | translate}} </span>
+          </div>
+
+        </ion-col>
+        <ion-col size="4">
+          <ion-img rel="preload" alt="{{'home-page.slogan' | translate}}" class="ion-padding" src="assets/svgs/home/workspace2.svg"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button [expand]="platform.is('mobile') ? 'full' : ''"
+                      size="large"
+                      color="secondary"
+                      [routerLink]="['/aprender-a-conjugar/']">{{'home-page.start-learning' | translate}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid class="ion-padding">
+      <ion-row class="ion-text-center">
+        <ion-col size-xs="12" size-sm="6" size-md="3" class="ion-padding">
+          <ion-img alt="Aprende a tu ritmo con una metodología probada" class="ion-padding ion-margin" src="assets/svgs/home/studying2.svg"></ion-img>
+          <h3>{{'home-page.txt-method' | translate}}</h3>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" size-md="3" class="ion-padding">
+          <ion-img alt="Escucha como suena cada conjugación o frase" class="ion-padding ion-margin" src="assets/svgs/home/audio2.svg"></ion-img>
+          <h3>{{'home-page.txt-listen' | translate}}</h3>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" size-md="3" class="ion-padding">
+          <ion-img alt="Orientado para mantener conversaciones en la vida real" class="ion-padding ion-margin" src="assets/svgs/home/conversation.svg"></ion-img>
+          <h3>{{'home-page.txt-life' | translate}}</h3>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" size-md="3" class="ion-padding">
+          <ion-img alt="Aprende desde cualquier dispositivo: movil, tablet o PC" class="ion-padding ion-margin" src="assets/svgs/home/ereader2.svg"></ion-img>
+          <h3>{{'home-page.txt-responsive' | translate}}</h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header color="secondary">
+              {{'home-page.verb-of-the-day' | translate}}
+            </ion-card-header>
+            <ion-card-content>
+              <ion-button
+                color="secondary"
+                [routerLink]="['/conjugacion/'+verbOfTheDay.verb]">
+                {{verbOfTheDay.verb}}
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid class="ion-padding">
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header color="secondary"
+                             class="ion-justify-content-center ion-text-center">
+              {{'home-page.most-common-reg' | translate}}
+            </ion-card-header>
+            <ion-card-content>
+              <ion-button
+                color="secondary"
+                *ngFor="let regular of commonRegularVerbs"
+                [routerLink]="['/conjugacion/'+regular]">
+                {{regular}}
+              </ion-button>
+            </ion-card-content>
+            <ion-footer>
+              <ion-button size="large" expand="block" [routerLink]="['/conjugacion/regulares']">
+                <ion-icon name="add-outline"></ion-icon>
+                Todos los verbos regulares
+              </ion-button>
+            </ion-footer>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card>
+            <ion-card-header color="secondary"
+                             class="ion-justify-content-center ion-text-center">
+              {{'home-page.most-common-irreg' | translate}}
+            </ion-card-header>
+            <ion-card-content>
+              <ion-button
+                color="secondary"
+                *ngFor="let irregular of commonIrregularVerbs"
+                [routerLink]="['/conjugacion/'+irregular]">
+                {{irregular}}
+              </ion-button>
+            </ion-card-content>
+            <ion-footer>
+              <ion-button size="large" expand="block" [routerLink]="['/conjugacion/irregulares']">
+                <ion-icon name="add-outline"></ion-icon>
+                Todos los verbos irregulares
+              </ion-button>
+            </ion-footer>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <app-web-footer></app-web-footer>
+
+</ion-content>

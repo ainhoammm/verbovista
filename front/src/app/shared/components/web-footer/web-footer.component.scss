@@ -1,0 +1,18 @@
+.footer{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
+  background: linear-gradient(
+      121.61deg
+    , rgb(64, 103, 238) 18.78%, rgb(88, 95, 242) 95.12%);
+
+  a{
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  a:hover{
+    color: var(--ion-color-primary-tint)
+  }
+}

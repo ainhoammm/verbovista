@@ -1,0 +1,30 @@
+<app-header title="Conjugaciones de verbos en español"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <app-search (results)="searched($event)"></app-search>
+
+  <div *ngIf="showAll">
+    <ion-list *ngFor="let result of allVerbs">
+      <ion-item [routerLink]="['/conjugacion/', result.verb]">
+        {{result.verb}}
+        <ion-badge [color]="result.irregular ? 'warning' : 'success'" slot="end">
+          {{ result.irregular ? 'Irregular' : 'Regular' }}
+        </ion-badge>
+      </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </div>
+
+
+
+</ion-content>
+
+

@@ -1,0 +1,150 @@
+<app-header class="noPrintable" [title]="'Conjugación verbo ' + conjugation.verb"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <app-search class="noPrintable"></app-search>
+
+  <div *ngIf="conjugation && conjugation.verb">
+    <h1 class="ion-padding">
+      <b>{{conjugation.verb}}</b>
+
+      <app-audio [textToPlay]="conjugation.verb"></app-audio>
+
+      <ion-badge [color]="conjugation.irregular ? 'warning' : 'success'" slot="end">
+        {{ conjugation.irregular ? 'Irregular' : 'Regular' }}
+      </ion-badge>
+
+      <ion-badge *ngIf="conjugation.reflex">
+        Reflexivo
+      </ion-badge>
+    </h1>
+
+    <ion-row class="ion-padding">
+      <ion-col size-sm="6" size-md="3">
+        Participio
+      </ion-col>
+      <ion-col size-sm="6" size-md="3">
+        <span [innerHTML]="conjugation.participioHTML"></span>
+        <app-audio [textToPlay]="conjugation.participio"></app-audio>
+      </ion-col>
+      <ion-col size-sm="6" size-md="3">
+        Gerundio
+      </ion-col>
+      <ion-col size-sm="6" size-md="3">
+        <span [innerHTML]="conjugation.gerundioHTML"></span>
+        <app-audio [textToPlay]="conjugation.gerundio"></app-audio>
+      </ion-col>
+      <ion-col size-sm="6" size-md="3">
+        Forma reflexiva
+      </ion-col>
+      <ion-col size-sm="6" size-md="3">
+        <span [innerHTML]="conjugation.verb + 'se'"></span>
+        <app-audio [textToPlay]="conjugation.verb + 'se'"></app-audio>
+      </ion-col>
+    </ion-row>
+
+    <app-banner [banner]="banner"></app-banner>
+
+    <h2 class="ion-padding">
+      Conjugación del verbo <b>{{conjugation.verb}}</b>
+    </h2>
+
+    <ion-list *ngFor="let group of groups">
+      <ion-item  lines="full">
+        <ion-label>{{group}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size-xs="12" size-lg="6" size-xl="4"
+                     *ngFor="let tiempo of conjugation.conjugations[group] | keyvalue">
+              <app-conjugation
+                [exercises]="exercises"
+                [values]="tiempo.value"
+                [tiempo]="tiempo.key">
+              </app-conjugation>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button size="large" (click)="onPrint()">
+          <ion-icon slot="start" name="print"></ion-icon>
+          {{'print' | translate}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+  </div>
+</ion-content>
+
+<div class="only-print">
+  <div *ngIf="conjugation && conjugation.verb" id="printArea" >
+    <h1 class="ion-padding">
+      {{conjugation.verb}}
+
+      <app-audio [textToPlay]="conjugation.verb"></app-audio>
+
+      <ion-badge [color]="conjugation.irregular ? 'warning' : 'success'" slot="end">
+        {{ conjugation.irregular ? 'Irregular' : 'Regular' }}
+      </ion-badge>
+
+      <ion-badge *ngIf="conjugation.reflex">
+        Reflexivo
+      </ion-badge>
+    </h1>
+
+    <ion-row class="ion-padding">
+      <ion-col size="3">
+        Participio
+      </ion-col>
+      <ion-col size="3">
+        <span [innerHTML]="conjugation.participioHTML"></span>
+        <app-audio [textToPlay]="conjugation.participio"></app-audio>
+      </ion-col>
+      <ion-col size="3">
+        Gerundio
+      </ion-col>
+      <ion-col size="3">
+        <span [innerHTML]="conjugation.gerundioHTML"></span>
+        <app-audio [textToPlay]="conjugation.gerundio"></app-audio>
+      </ion-col>
+      <ion-col size="3">
+        Forma reflexiva
+      </ion-col>
+      <ion-col size="3">
+        <span [innerHTML]="conjugation.verb + 'se'"></span>
+        <app-audio [textToPlay]="conjugation.verb + 'se'"></app-audio>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-list *ngFor="let group of groups">
+      <ion-item  lines="full">
+        <ion-label>{{group}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6"
+                     *ngFor="let tiempo of conjugation.conjugations[group] | keyvalue">
+              <app-conjugation
+                [exercises]="exercises"
+                [values]="tiempo.value"
+                [tiempo]="tiempo.key">
+              </app-conjugation>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+
+</div>
+
